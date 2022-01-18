@@ -12,7 +12,7 @@ public class CommonController {
 	
 	  @Autowired 
 	  private CommonService service;
-	
+	  
 
 
    @RequestMapping("main")
