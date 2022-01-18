@@ -14,7 +14,7 @@ public class CommonController {
 	  private CommonService service;
 	  
 
-
+  
    @RequestMapping("main")
    public String selectLikeCount() {
 	   System.out.println("되람나ㅣㅇ롱나ㅣㅗㄹ머ㅏㅣ오러ㅏㅣ몬어ㅏ");
