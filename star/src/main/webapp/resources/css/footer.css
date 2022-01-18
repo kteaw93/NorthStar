@@ -1,0 +1,91 @@
+footer{
+    background-color: #fff;
+    padding : 30px 0;
+    border-top: 1px solid #a5a4a4;
+}
+
+.inner{
+    max-width:1280px;
+    margin:auto;
+}
+
+
+.footer-content{
+    display:flex;
+}
+.footer-content ul{
+    text-align: center;
+    list-style-type: none;
+}
+.footer-content ul li:first-child{
+    color:#000;
+    font-weight: 500;
+}
+.footer-content ul li a{
+    color:#a5a4a4;
+    text-decoration: none;
+}
+.footer-content ul li a:hover{
+    text-decoration: underline;
+}
+
+
+.footer-content .introduce{
+    flex:1;
+}
+.footer-content .network{
+    flex:1;
+}
+.footer-content .help{
+    flex:2;
+}
+.footer-content .help li{
+    color: #a5a4a4;
+
+}
+.footer-content .help li:last-child{
+    margin-top:30px;
+    color:#000;
+}
+
+
+
+
+/* top 버튼 */
+.btn_top{
+    position: fixed;
+    bottom:30px;
+    right:30px;
+    height:40px;
+    width:40px;
+    background: #F5dF4D;
+    text-align: center;
+    border-radius: 3px;
+    cursor:pointer;
+    z-index: 20;
+}
+
+.btn_top span{
+    color:white;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+
+@media(max-width:768px){
+    .inner{
+        width:100%;
+        padding : 15px;
+        box-sizing: border-box;
+    }
+    
+    
+    
+    .footer-content{
+        flex-direction: column;
+    }
+    .footer-content ul{
+        margin-bottom: 20px;
+    }
+    
+}

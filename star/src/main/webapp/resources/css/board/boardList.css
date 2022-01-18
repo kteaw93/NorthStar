@@ -1,0 +1,135 @@
+header{
+    position:relative !important;
+}
+
+#white{
+	color:white;
+}
+
+.ehsheYellow{
+    background-color: #F5dF4D !important;
+}
+
+.pagination li a{
+	color:black;
+}
+
+.boardMain {
+    margin-top: 50px;
+}
+
+.myPlace-header-img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.transHeader{
+	width: 65px;
+	height: 70px;
+}
+
+.transHeader2{
+	width: 100px;
+	height: 100px;
+}
+
+.trans1:hover {
+	transform: translateY(-20px) rotate(-25deg);
+	
+}
+.trans2:hover {
+	transform: translateY(-20px) rotate(15deg);
+}
+
+.card:hover{
+	cursor:pointer;
+}
+
+.myPlace{
+    margin-top: 60px;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.card-block>span{
+    font-size: 14px;
+}
+
+.card-img-top{
+	height: 160px;
+}
+
+
+.card-block>span:nth-of-type(2){
+    float: right;
+    margin-right: 4px;
+}
+
+.card-block>span:nth-of-type(3){
+    font-size: 0.8rem;
+}
+
+
+.card-block>span:last-child{
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.insert-btn>button{
+    float: right;
+}
+
+/* 페이지 네이션 */
+.pagination-area{
+    position: relative;
+}
+
+.pagination{
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.selectBox{
+    justify-content: center; 
+    margin-top: 2%;
+    margin-bottom: 5%;
+    
+}
+.selectBox input{
+border-radius: 1rem;
+}
+
+.selectBox select{
+border-radius: 1rem;
+}
+
+.selectBox button{
+border-radius: 1rem;
+}
+
+
+.writeBtn{
+    float: right;
+}
+
+.swal-button {
+   background-color: #F5DF4D;
+}
+
+.swal-button:not([disabled]):hover {
+   background-color: #f0d700;
+}
+
+.swal-button:focus {
+   box-shadow: 0 0 0 3px #fff;
+}

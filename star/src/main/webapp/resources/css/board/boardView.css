@@ -1,0 +1,90 @@
+header{
+    position:relative !important;
+}
+
+#boardMain{
+    margin-top: 45px;
+}
+
+.h-textArea{
+	 margin-top: 48px;
+	 text-align: center;
+	 color: white;
+	 width:98%;
+	 height:121%;
+	background-color:rgba(22,22,22,0.5);
+}
+
+.h-textArea h3{
+	 margin-top: 75px;
+}
+
+.h-boardView{ 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.h-boardView>img{
+    width: 95%;
+    height: 280px;
+    position:absolute;
+    margin:auto;
+    right:0;
+    left:0;
+    top:0;
+    z-index:-3;
+}
+.subInfoArea{
+}
+
+.iLike{
+	position:absolute;
+	margin:auto;
+	right:40px;
+	bottom:0px;
+}
+
+.subInfo{
+    text-align: right;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin-bottom: 40px;
+    color:white;
+}
+
+.ehsheYellow{
+    background-color: #F5dF4D !important;
+}
+
+.map_wrap{
+
+    margin-top: 50px;
+}
+
+.btnBox{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    justify-content: right;
+}
+
+.btnBox a:last-of-type{
+    float: right;
+}
+
+.btnBox button{
+    float: right;
+    margin-left: 10px;
+}
+
+.swal-button {
+   background-color: #F5DF4D;
+}
+
+.swal-button:not([disabled]):hover {
+   background-color: #f0d700;
+}
+
+.swal-button:focus {
+   box-shadow: 0 0 0 3px #fff;
+}
