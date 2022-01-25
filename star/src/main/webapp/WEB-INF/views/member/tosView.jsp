@@ -142,7 +142,7 @@ label{
 <body>		
 	<div class="form-wrapper">
 		<div class="title">
-			<a href="${contextPath}">EHSHE</a>
+			<a href="${contextPath}/common/main">main으로</a>
 		</div>
 
 		<br>  
@@ -150,7 +150,7 @@ label{
 		
 		<br>
 		<div class="tos-header">
-			<span>EHSHE 계정 <br> 서비스 약관에 동의해 주세요.</span>
+			<span> 계정 <br> 서비스 약관에 동의해 주세요.</span>
 			
 			<br><br>
 			<input type="checkbox" id="checkAll">
@@ -162,8 +162,7 @@ label{
 		
 		<br>
 		<div class="form-container">
-		<%-- 이용약관 form --%>		
-			<form action="signUpView">
+
 				<input type="checkbox" id="check1" name="check" required>
 				<label for="check1" class="text-tos"><em></em> &nbsp; [필수] 이용약관</label>	
 				<div class=view-all>
@@ -171,20 +170,7 @@ label{
 		   	</div>
 			
 		  	<br><br>		   
-			  <textarea readonly rows="6" cols="52" class="textarea-tos">
- 제 1조 (샘플)
-			    		   	
-  Lorem ipsum dolor sit amet, consectetur
-  adipisicing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua.
-  Ut enim ad minim veniam, quis nostrud
-  exercitation ullamco laboris nisi ut aliquip
-  exea commodo consequat. Duis aute irure 
-  dolor in reprehenderit in voluptate velit 
-  esse cillum dolore eu fugiat nulla pariatur. 
-  Excepteur sint occaecat cupidatat non 
-  proident,sunt in culpa qui officia deserunt
-  mollit anim id est laborum. </textarea>		
+			  <textarea readonly rows="6" cols="52" class="textarea-tos"> 제 1조 (샘플) </textarea>		
 
 				<br><br>		
 				<input type="checkbox" id="check2" name="check" required>
@@ -194,20 +180,7 @@ label{
 		    </div>
 		
 		    <br><br>		     
-		    <textarea readonly rows="6" cols="52" class="textarea-tos">
-  제 1조 (샘플)
-			    		   	
-  Lorem ipsum dolor sit amet, consectetur
-  adipisicing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua.
-  Ut enim ad minim veniam, quis nostrud
-  exercitation ullamco laboris nisi ut aliquip
-  exea commodo consequat. Duis aute irure 
-  dolor in reprehenderit in voluptate velit 
-  esse cillum dolore eu fugiat nulla pariatur. 
-  Excepteur sint occaecat cupidatat non 
-  proident,sunt in culpa qui officia deserunt
-  mollit anim id est laborum. </textarea>
+		    <textarea readonly rows="6" cols="52" class="textarea-tos">  제 1조 (샘플)</textarea>
   
 	 			<br><br>			
 				<input type="checkbox" id="check3" name="check">
@@ -233,8 +206,8 @@ label{
   mollit anim id est laborum. </textarea>	   		
 		    				
 				<br><br>
-				<button type="submit" class="btn btn-lg btn-block">동의</button>
-			</form>
+				<button type="submit" class="btn btn-lg btn-block" id="idAgree"  disabled="disabled" >동의</button>
+
 		</div>
 	</div>
 	
@@ -282,36 +255,28 @@ label{
   $("#checkAll").on("click", function(){
     if($("#checkAll").prop("checked")){
 			$("input[name=check]").prop("checked",true);
-			$(".btn").attr("style", "background-color: #F5DF4D !important;")
-			.mouseover(function(){
-				$(this).attr("style", "background-color: #f0d700 !important;");	
-			})		
-			.mouseout(function(){
-				$(this).attr("style", "background-color: #F5DF4D !important;");	
+			$(".btn").attr("disabled", false).mouseover(function(){
+			$(this).attr("style", "background-color: #f0d700 !important;");}).mouseout(function(){
+			$(this).attr("style", "background-color: #F5DF4D !important;");	
 			});		 
-  }else{
-  	$("input[name=check]").prop("checked",false);
-		$(".btn").attr("style", "background-color: #f6f6f6  !important;")
-		.mouseover(function(){
-			$(this).attr("style", "background-color: #dbdbdb !important;");	
-		})		
-		.mouseout(function(){
+  	}else{
+  			$("input[name=check]").prop("checked",false);
+			$(".btn").attr("disabled", false).mouseover(function(){ 
+			$(this).attr("style", "background-color: #dbdbdb !important;");	}).mouseout(function(){
 			$(this).attr("style", "background-color: #f6f6f6 !important;");	
-		});	
-   }
+			});	
+  	 }
 	});
     
 	// 한개의 체크박스 해제시 전체 선택도 해제
  	$("input[name='check']").on("click", function(){
-			$("#checkAll").prop("checked", false);						
+			$("#checkAll").prop("checked", false);	
 	});
 	
-	// 체크에 따라 버튼 색 변경
-	// 부트스트랩 사용 시, css 변경할 경우 !important가 필요
-	// -> .css() 메서드는 !important 안되므로  .atrr() 사용
+
 	$("#check1, #check2").on("change", function(){
 		if($('#check1').prop('checked') && $('#check2').prop('checked')){	
-			$(".btn").attr("style", "background-color: #F5DF4D !important;")
+			$(".btn").attr("disabled", false)
 			.mouseover(function(){
 				$(this).attr("style", "background-color: #f0d700 !important;");	
 			})		
@@ -319,7 +284,7 @@ label{
 				$(this).attr("style", "background-color: #F5DF4D !important;");	
 			});	
 		} else {
-			$(".btn").attr("style", "background-color: #f6f6f6  !important;")
+			$(".btn").attr("disabled", false)
 			.mouseover(function(){
 				$(this).attr("style", "background-color: #dbdbdb !important;");	
 			})		
@@ -329,6 +294,13 @@ label{
 		}
  	}); // 체크박스 함수 end
 	
+
+ 	$("#idAgree").click(function(){
+
+ 		location.href="${contextPath}/member/signUpView";
+ 	
+ 	})
+ 		
 	</script>		
 </body>
 </html>

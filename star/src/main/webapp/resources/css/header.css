@@ -297,3 +297,259 @@ nav > * {
     }
 
 }
+
+
+*{margin : 0; padding : 0; box-sizing : border-box;}
+
+.form-wrapper {
+	margin: 50px 0 120px 0;
+}
+
+.form-container {
+	margin: auto;
+	height: 100%;
+  max-width: 350px;
+}
+
+.loginTitle {
+  font-size: 2rem; 
+	font-weight: bold;
+  text-align: center;
+}
+
+.loginTitle > a {
+ 	text-decoration: none;
+	color: #404040;
+}
+
+.hr {
+	margin: auto; 
+	width: 40%; 
+	min-width: 350px; 
+	text-align: center;
+	border-top: 1px solid #e6e6e6; 
+}
+
+/* 체크박스 css */
+input[id="saveId"] {
+	display: none;
+}
+
+input[id="saveId"] + label em { /* 인접요소 선택자 */
+    display : inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 3px 0;
+    background: url(${contextPath}/resources/images/checkOut.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+
+input[id="saveId"]:checked + label em {
+    background: url(${contextPath}/resources/images/check.png) 0 0 no-repeat;
+}
+
+.form-control {
+	height: 3rem ;
+	border-radius: 1rem;
+}
+
+.info-user, .list-user {
+	float: none;
+	list-style: none;
+	text-align: center;
+	margin-bottom: 30px;
+	}
+
+.list-user > li {
+	float: none;
+	display: inline-block;
+	}
+	
+.list-user a {
+	text-decoration: none;
+	color: rgba(0,0,0,0.7);
+}
+
+.list-user a:hover {
+	color: #007bff;
+}
+
+.loginBtn {
+	height: 2.8rem;
+	margin-top: 0.7rem;
+	font-weight: 600;
+	font-size: 15px;
+	color: #191919;
+	background-color: #f6f6f6;
+	border-radius: 1rem;
+}
+
+.loginBtn:hover {
+	background-color: #dbdbdb;
+}
+
+.title-sns {
+	margin-top: 15px;	
+  text-align:center;
+  font-size: 30px; 
+  color: #404040;
+}
+
+.text-sns, .text-login {
+	font-size: 20px;
+	font-weight: 600; 
+	color : #404040;
+} 
+
+.img-area{
+	text-align: center;
+}
+
+
+.link-sns{
+	display: inline-block;
+	margin: 0 30px 0 30px;
+}
+
+.link-sns > a {
+	text-decoration: none;
+	color: rgba(0,0,0,0.7);
+}
+
+.link-sns > a:hover {
+	color: #007bff;
+}
+
+.snsIcon {
+	width: 51px; 
+	height: 51px; 
+	margin-bottom: 5px;
+}
+
+.swal-button {
+	background-color: #F5DF4D;
+}
+
+.swal-button:not([disabled]):hover {
+	background-color: #f0d700;
+}
+
+.swal-button:focus {
+	box-shadow: 0 0 0 3px #fff;
+}
+
+
+*{margin : 0; padding : 0; box-sizing : border-box;}
+
+.form-wrapper{
+	margin: 50px 0 120px 0;
+}
+
+.title {
+  font-size: 2rem; 
+	font-weight: bold;
+  text-align: center;
+}
+
+.title > a {
+ 	text-decoration: none;
+	color: #404040;
+} 
+
+.hr {
+	margin: auto; 
+	width: 40%; 
+	min-width: 350px; 
+	text-align: center;
+	border-top: 1px solid #e6e6e6; 
+}
+
+.tos-header {
+	margin: auto;
+	max-width: 385px;
+	font-size: 18px;
+	font-weight: normal;
+	color : #909090; 
+}
+
+.form-container {
+	height: 100%;
+	margin: auto;
+  max-width: 385px;
+}
+
+
+/* 체크박스 css */
+input[id="checkAll"], input[name="check"] {
+	display:none;
+}
+
+input[id="checkAll"] + label em, input[name="check"] + label em { /* 인접요소 선택자 */
+    display : inline-block;
+    width:16px;
+    height:16px;
+    margin:0 5px 3px 0;
+    background: url(${contextPath}/resources/images/checkOut.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+
+input[id="checkAll"]:checked + label em, input[name="check"]:checked + label em {
+    background: url(${contextPath}/resources/images/check.png) 0 0 no-repeat;
+}
+
+label{
+	font-size: 15px;
+	color : #404040;
+}
+
+.text-tos {
+	font-size: 15px;
+	float: left;
+}
+
+.text-tos:hover, .text-tos-all:hover {
+	cursor:pointer;
+}
+
+.view-all > a {
+	float: right; 
+	text-decoration: none;
+	color: rgba(0,0,0,0.7);
+	font-size: 14px;
+}
+
+.view-all > a:hover{
+	color: #007bff;
+}
+
+.textarea-tos {
+	resize: none; 
+	text-align: left;
+}
+
+.btn{
+	margin-top: 0.7rem;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	color: #191919 !important;
+	background-color: #f6f6f6 !important;
+ 	border-radius: 1rem !important;
+	height: 2.6rem !important;
+}
+
+.btn:hover {
+	background-color: #dbdbdb !important;
+}
+
+/* .modal-header{
+	border-bottom: none;
+} */
+
+.modal-content{
+	padding: 1.5rem 3rem 3rem 3rem;
+	}
+
+/* .modal-footer{
+	border-top: none;
+	}  */
+ 

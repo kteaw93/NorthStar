@@ -142,7 +142,7 @@ label > span {
 <body>
 	<div class="form-wrapper">		
 		<div class="title">
-			<a href="${contextPath}">EHSHE</a>
+			<a href="${contextPath}/common/main">main으로</a>
 		</div>
 
 		<br>
@@ -150,23 +150,59 @@ label > span {
 			
 		<br>
 		<h5 style="text-align:center;">회원 정보 입력</h5>
-
+		<div id="authKeyDiv"></div>
 		<br>
 		<%-- 회원 가입 form --%>
-		<form action="signUp" method="POST" name="signUp" class="needs-validation" onsubmit="return validate();">
-			<div class="form-container">
+				<div class="form-container">
+				<%-- 이메일 --%>
+				<div class="row mb-2 form-row">
+					<div class="col-md-3">
+						<label for="memberEmail">이메일(인증) <span>*</span></label>
+					</div>
+					<div class="col-md-7 mb-2">
+						<input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일 주소 입력" autocomplete="off" required>
+					</div>
+					<%-- 인증 버튼 --%>
+					<button type="button" class="btn" id="memberEmailCk">&nbsp;인증&nbsp;</button>			
+					<div class="col-md-9 offset-md-3">
+						<span id="checkEmail">&nbsp;</span>
+					</div>
+				</div>
+					
+				<%-- 이메일 인증 --%>
+				<div class="row mb-2 form-row">
+					<div class="col-md-3">
+						<label for="certify">이메일 인증 <span>*</span></label>
+					</div>
+					<div class="col-md-7 mb-2">
+						<input type="text" class="form-control" id="certify" name="certify" placeholder="인증번호를 입력해주세요." autocomplete="off" required>
+					</div>
+					<div class="col-md-9 offset-md-3">
+						<span id="certificationCheck">&nbsp;</span>
+					</div>
+				</div>
+				
+				<%-- 이메일 --%>
+				<div class="row mb-2 form-row">
+					<div class="col-md-3">
+						<label for="memberEmail">이메일 <span>*</span></label>
+					</div>
+					<div class="col-md-7 mb-2">
+						<input type="email" class="form-control" id="memberEmailSecond" name="memberEmailSecond" placeholder="이메일 주소 입력" autocomplete="off" required>
+					</div>
+				</div>
+				
+				
+								
 				<%-- 아이디 --%>
 				<div class="row mb-2 form-row">
 					<div class="col-md-3">
-						<label for="memberId">아이디 <span>*</span></label>
+						<label for="memberId">닉네임 <span>*</span></label>
 					</div>
-					<div class="col-md-9 mb-2">
-						<input type="text" class="form-control" name="memberId" id="memberId" placeholder="아이디를 입력해주세요." autocomplete="off" required>
+					<div class="col-md-7 mb-2" id ="nickArea">
+						<input type="text" class="form-control" name="memberNick" id="memberNick" placeholder="닉네임을 입력해주세요." autocomplete="off" required>
 					</div>
-					<%-- 유효성 검사 --%>
-					<div class="col-md-9 offset-md-3">
-						<span id="checkId">&nbsp;</span>
-					</div> 
+					<button type="button" class="btn" id="memberNickCk">중복</button>			
 				</div>
 
 				<%-- 비밀번호 --%>
@@ -221,51 +257,22 @@ label > span {
 					</div>
 				</div>
 
-				<%-- 이메일 --%>
-				<div class="row mb-2 form-row">
-					<div class="col-md-3">
-						<label for="memberEmail">이메일 <span>*</span></label>
-					</div>
-					<div class="col-md-7 mb-2">
-						<input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일 주소 입력" autocomplete="off" required>
-					</div>
-					<%-- 인증 버튼 --%>
-					<button type="button" class="btn" id="certifyBtn">&nbsp;인증&nbsp;</button>			
-					<div class="col-md-9 offset-md-3">
-						<span id="checkEmail">&nbsp;</span>
-					</div>
-				</div>
-					
-				<%-- 이메일 인증 --%>
-				<div class="row mb-2 form-row">
-					<div class="col-md-3">
-						<label for="certify">이메일 인증 <span>*</span></label>
-					</div>
-					<div class="col-md-7 mb-2">
-						<input type="text" class="form-control" id="certify" name="certify" placeholder="인증번호를 입력해주세요." autocomplete="off" required>
-					</div>
-					<div class="col-md-9 offset-md-3">
-						<span id="certificationCheck">&nbsp;</span>
-					</div>
-				</div>	
-						
-				<%-- 성별 --%>
 				<div class="row">
 					<div class="col-md-3">
-						<label>성별 <span>*</span></label>
+						<label>등급 <span>*</span></label>
 					</div>
 					
 					<br>	
 					<div class="form-check"> 
-						<input class="gender-radio" type="radio" name="memberGender" id="female" value ='F' checked>
+						<input class="gender-radio" type="radio" name="memberGender" id="female" value ='B' checked>
 						<label for="female">
-							<em></em> 여성 &nbsp;&nbsp;&nbsp;&nbsp;
+							<em> 일반 </em>
 						</label>
 					</div>
 					<div class="form-check">
-						<input class="gender-radio" type="radio" name="memberGender" id="male"  value='M'>
+						<input class="gender-radio" type="radio" name="memberGender" id="male"  value='G'>
 						<label for="male">
-							<em></em> 남성
+							<em> 판매자 </em>
 						</label>
 					</div>
 				</div>
@@ -279,11 +286,71 @@ label > span {
 			<div class="signUpBtn-area">
 				<button class="btn btn-lg signUpBtn" type="submit">가입하기</button>
 			</div>
-		</form>
 	</div>
 
-	<%-- 회원 가입 유효성 검사 및 이메일 인증 js --%>
-	<script src="${contextPath}/resources/js/memberValidation.js"></script>
+<script>
+
+$(document).ready(function(){
+
+	/*이메일 인증  */
+	$("#memberEmailCk").click(function(){
+		
+		
+		  $.ajax({
+				url:"memberEmailCk",
+				type:"post",
+				data:{ 
+					memberId :  $("#memberEmail").val()
+					
+				},
+				success:function(data){
+					console.log(data);
+					var temp = " ";
+					temp += "<input type='hidden' id='authKeyInput' value='"+data+"'> ";
+					
+					$("#authKeyDiv").empty().append(temp);
+				},
+				error :function(){
+					
+				}
+		
+		  }) 
+		
+	})
+	
+	
+	/*member e  */
+	$("#memberNickCk").click(function(){
+	
+	  $.ajax({
+			url:"memberNickCk",
+			type:"post",
+			data:{ 
+				memberNick :  $("#memberNick").val()
+				
+			},
+			success:function(data){
+				if(data ==="1"){
+					alert("중복된 닉네임입니다");
+					var temp = " ";
+					temp += "<input type='text' class='form-control' name='memberNick' id='memberNick' placeholder='닉네임을 입력해주세요.' autocomplete='off' required> ";
+					
+					$("#nickArea").empty().append(temp);
+				}else{
+
+					alert("사용가능한 닉네임입니다");
+				}
+				
+			},
+			error :function(){
+				
+			}
+	
+	  }) 
+	
+})
+})
+</script>
 
 	<%-- footer --%>
 	<jsp:include page="../common/footer.jsp"></jsp:include>

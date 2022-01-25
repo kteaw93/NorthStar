@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<!--아이디 로그인 -->
+	<select id="loginCk" resultType="_int">
+	SELECT COUNT(*)
+	FROM HB_MEMBER
+	WHERE MEM_EMAIL = #{memberId} AND MEM_PW = #{memberPw}
+	</select>
+
+	<!-- 닉네임 중복 체크 -->
+	<select id="memberNickCk" resultType="_int">
+		SELECT COUNT(*)
+		FROM HB_MEMBER
+		WHERE MEM_NICK =#{memberNickCk}
+	</select>
+</mapper>

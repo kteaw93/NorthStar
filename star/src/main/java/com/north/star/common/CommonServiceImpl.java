@@ -9,7 +9,7 @@ public class CommonServiceImpl implements CommonService{
 	@Autowired
 	private CommonDAO Dao;
 
-	@Override
+	
 	public int testNum() {
 		return Dao.testNum();
 	}

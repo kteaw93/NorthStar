@@ -17,9 +17,6 @@ public class CommonController {
   
    @RequestMapping("main")
    public String selectLikeCount() {
-	   System.out.println("되람나ㅣㅇ롱나ㅣㅗㄹ머ㅏㅣ오러ㅏㅣ몬어ㅏ");
-	   int k = service.testNum();
-	   System.out.println("디비데이터느ㅜㄴ" + k);
       return "common/main";
    }
 	
