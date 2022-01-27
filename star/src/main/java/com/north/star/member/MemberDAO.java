@@ -18,15 +18,20 @@ public class MemberDAO {
 		return sqlSession.selectOne("member.loginCk",memberCk);
 	}
 
-	public String memberNickCk(String memberNickCk) {
+	public int memberNickCk(String memberNickCk) {
 		String returnvalue = null;
 		int result = sqlSession.selectOne("member.memberNickCk",memberNickCk);
-		if (result == 1) {
-			returnvalue ="1";
-		}else {
-			returnvalue = "0";
-		}
-		return returnvalue;
+
+		return result;
+	}
+
+	public int emailCk(String email) {
+		return sqlSession.selectOne("member.emailCk",email);
+	}
+
+	public int memberSubmit(HashMap<String, String> member) {
+		System.out.println(sqlSession.insert("member.memberSubmit",member));
+		return sqlSession.insert("member.memberSubmit",member);
 	}
 	
 }

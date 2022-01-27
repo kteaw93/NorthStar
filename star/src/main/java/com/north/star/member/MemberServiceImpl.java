@@ -51,11 +51,13 @@ public class MemberServiceImpl implements MemberService {
         try {
             MailUtils sendMail = new MailUtils(mailSender);
             sendMail.setSubject("회원가입 이메일 인증");
-            sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
-            .append("<p>인증번호는")
-            .append(authKey)
-            .append("</p>")
-            .toString());
+            sendMail.setText(
+	        		new StringBuffer()
+	        		.append("<h1>[이메일 인증]</h1>")
+		            .append("<p>인증번호는")
+		            .append(authKey)
+		            .append("</p>")
+		            .toString());
             sendMail.setFrom(email, "관리자");
             sendMail.setTo(email);
             sendMail.send();
@@ -66,13 +68,8 @@ public class MemberServiceImpl implements MemberService {
         }
         
           return authKey;
-    }
-  
+	}
 
-	
-	
-	
-	
 	@Override
 	public int loginCk(HashMap<String, String> memberCk) {
 
@@ -80,8 +77,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String memberNickCk(String memberNickCk) {
+	public int memberNickCk(String memberNickCk) {
 		return dao.memberNickCk(memberNickCk);
+	}
+
+	@Override
+	public int emailCk(String email) {
+		return dao.emailCk(email);
+	}
+
+	@Override
+	public int memberSubmit(HashMap<String, String> member) {
+		return dao.memberSubmit(member);
 	}
 
 }

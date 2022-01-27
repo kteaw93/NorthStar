@@ -16,9 +16,6 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
 
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/board/boardList.css">
@@ -34,53 +31,25 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<div class="row">
-					<div class="col-md-12 myPlace-header-img">
-						<img class="trans1 transHeader" src="${contextPath}/resources/bImages/bh1.png">&nbsp;&nbsp;
-						<img class="trans1 transHeader" src="${contextPath}/resources/bImages/bh2.png">&nbsp;&nbsp;
-						<img class="trans2 transHeader" src="${contextPath}/resources/bImages/bh3.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<img class="trans1 transHeader" src="${contextPath}/resources/bImages/bh4.png">&nbsp;&nbsp;
-						<img class="trans2 transHeader" src="${contextPath}/resources/bImages/bh5.png">&nbsp;&nbsp;
-						<img class="trans3 transHeader2" src="https://media.giphy.com/media/l41lIuaFyv0pleqT6/giphy.gif">&nbsp;&nbsp;
-					</div>
+
 				</div>
 				<div class="row myPlace">
-					<c:if test="${empty bList }">
-						<h5>존재하는 게시글이 없습니다.</h5>
-					</c:if>
 
-					<c:if test="${!empty bList }">
-						<c:forEach var="board" items="${bList}" varStatus="vs">
+<!-- 						<h5>존재하는 게시글이 없습니다.</h5> -->
+
 							<div class="col-md-3">
-								<div class="row">
+								<div class="row"  id="boardArea">
 									<div class="card">
-										<div style="display: none;">${board.boardNo}</div>
-										<c:forEach var="th" items="${thList}">
-											<c:if test="${th.boardNo == board.boardNo}">
-											<img class="card-img-top" alt="Bootstrap Thumbnail" src="${contextPath}${th.thumbnailFilePath}/${th.fileName}" />
-											</c:if>
-										</c:forEach>
 
-										<div class="card-block">
-											<span class="card-title">${board.boardTitle}</span>
-											<span class="card-like">❤ ${board.likeCount}</span><br>
-												<c:set var = "loca" value = "${fn:split(board.location,',')[1]}" />
-											<span class="card-text">${fn:split(loca,' ')[0]} - ${fn:split(loca,' ')[1]}</span><br>
-											<c:set var = "length" value ="${fn:length(board.memberId)}"/>
-											<span class="card-writer">${fn:substring(board.memberId,0,2)}****</span>
-										</div>
 									</div>
 								</div>
 							</div>
-						</c:forEach>
-					</c:if>
 				</div>
 
 				<div class="row">
 					<div class="col-md-12 insert-btn">
-						<c:if test="${!empty loginMember }">
 							<a class="btn ehsheYellow float-right writeBtn" 
 								href="${contextPath}/board/insertBoard">글쓰기</a>
-						</c:if>
 					</div>
 				</div>
 				
@@ -188,42 +157,38 @@
 	
 
 	<script>
-		// 게시글 상세보기 기능 (jquery를 통해 작업)
-		$(".card").on("click", function() {
-			var boardNo = $(this).children().eq(0).text();
 	
-			var boardViewURL = "${contextPath}/board/" + boardNo;
-			
-			// var boardViewURL = "../" + boardNo;
+	$(document).ready(function(){
+	
+		$.ajax({
+			url:"boardArea",
+			type:"post",
+			data: {
+				
+			},
+			success:function(data){
+				var temp = "";
+				$.each(data, function(index,item){
+					temp += '<div><div class="card-block">'+
+					'<input class="card-title" value="'+item.WRITE_NUM+'"></input>'+
+					 	'<input class="card-writer" value="'+item.WRITE_TITLE+'"></input>'+
+				      '<input class="card-writer" value="'+item.WRITE_MAX_PRICE+'"></input><br>'+
+				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
+				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
+				      '</div></div><br><br>'; 
+				})
 
-			location.href = boardViewURL;
-		});
-		
-		
-	// 검색 파라미터 유지하기
-	$(function(){
-		
-		// 검색 조건 sk
-		$("select[name=sk] > option").each(function(index,item){
-			if( $(item).val() == "${sk}"){
-				$(item).prop("selected", true);
+			     $("#boardArea").empty().append(temp);
+			},
+			error: function(){
+				
 			}
-		});
 		
-		// 검색 값 sv
-		$("input[name=sv]").val("${sv}");
-	});
-	
-	
-	$(function(){
-		$(".trans3").fadeTo(0, 0.0);
+		})
+		
 	})
 	
-	$(".trans3").hover(function(){
-        $(this).fadeTo(1000, 1);
-    }, function(){
-        $(this).fadeTo(1000, 1);
-   });
+	
 	</script>
 
 

@@ -8,11 +8,24 @@
 	FROM HB_MEMBER
 	WHERE MEM_EMAIL = #{memberId} AND MEM_PW = #{memberPw}
 	</select>
-
+	
+	<!--아이디 로그인 -->
+	<select id="emailCk" resultType="_int">
+	SELECT COUNT(*)
+	FROM HB_MEMBER
+	WHERE MEM_EMAIL = #{email} 
+	</select>
+	
 	<!-- 닉네임 중복 체크 -->
 	<select id="memberNickCk" resultType="_int">
 		SELECT COUNT(*)
 		FROM HB_MEMBER
 		WHERE MEM_NICK =#{memberNickCk}
 	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="memberSubmit" parameterType="map">
+	INSERT INTO HB_MEMBER(MEM_NO,MEM_PW,MEM_NM,MEM_EMAIL,MEM_PHONE,MEM_ENROLL_DATE,MEM_GRADE,MEM_NICK )
+	VALUES (SEQ_HB_MEMBER_NUMBER.NEXTVAL,#{memberPw1},#{memberNm},#{memberEmail},#{memberPhone},SYSDATE, #{memberGrade},#{memberNick} )
+	</insert>
 </mapper>

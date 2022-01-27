@@ -88,7 +88,7 @@
 					console.log(data);
 					if(data === 1){
 						alert("로그인성공");
-						
+						location.href="${contextPath}/common/main";
 					}else{
 						alert("로그인실패");
 					}

@@ -6,8 +6,12 @@ public interface MemberService {
 
 	int loginCk(HashMap<String, String> memberCk);
 
-	String memberNickCk(String memberNickCk);
+	int memberNickCk(String memberNickCk);
 
 	String sendAuthMail(String email);
+
+	int emailCk(String email);
+
+	int memberSubmit(HashMap<String, String> member);
 
 }

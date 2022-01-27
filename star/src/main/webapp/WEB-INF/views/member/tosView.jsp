@@ -72,12 +72,7 @@ input[id="checkAll"] + label em, input[name="check"] + label em { /* 인접요�
     width:16px;
     height:16px;
     margin:0 5px 3px 0;
-    background: url(${contextPath}/resources/images/checkOut.png) 0 0 no-repeat;
     vertical-align: middle;
-}
-
-input[id="checkAll"]:checked + label em, input[name="check"]:checked + label em {
-    background: url(${contextPath}/resources/images/check.png) 0 0 no-repeat;
 }
 
 label{

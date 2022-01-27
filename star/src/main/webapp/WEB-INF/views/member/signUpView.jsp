@@ -74,13 +74,11 @@ input[name="gender"] + label em { /* 인접요소 선택자 */
     width:16px;
     height:16px;
     margin:0 5px 3px 0;
-    background: url(${contextPath}/resources/images/checkOut.png) 0 0 no-repeat;
+   
     vertical-align: middle;
 }
 
-input[name="gender"]:checked + label em {
-    background: url(${contextPath}/resources/images/check.png) 0 0 no-repeat;
-}
+
 
 label {
 	font-size: 0.9rem !important;
@@ -172,26 +170,15 @@ label > span {
 				<%-- 이메일 인증 --%>
 				<div class="row mb-2 form-row">
 					<div class="col-md-3">
-						<label for="certify">이메일 인증 <span>*</span></label>
+						<label for="certify">이메일 인증 번호<span>*</span></label>
 					</div>
 					<div class="col-md-7 mb-2">
-						<input type="text" class="form-control" id="certify" name="certify" placeholder="인증번호를 입력해주세요." autocomplete="off" required>
+						<input type="text" class="form-control" id="authKeyCheck" name="authKeyCheck" placeholder="인증번호를 입력해주세요." autocomplete="off" required>
 					</div>
 					<div class="col-md-9 offset-md-3">
 						<span id="certificationCheck">&nbsp;</span>
 					</div>
 				</div>
-				
-				<%-- 이메일 --%>
-				<div class="row mb-2 form-row">
-					<div class="col-md-3">
-						<label for="memberEmail">이메일 <span>*</span></label>
-					</div>
-					<div class="col-md-7 mb-2">
-						<input type="email" class="form-control" id="memberEmailSecond" name="memberEmailSecond" placeholder="이메일 주소 입력" autocomplete="off" required>
-					</div>
-				</div>
-				
 				
 								
 				<%-- 아이디 --%>
@@ -263,19 +250,25 @@ label > span {
 					</div>
 					
 					<br>	
-					<div class="form-check"> 
-						<input class="gender-radio" type="radio" name="memberGender" id="female" value ='B' checked>
+					<div class="form-control phone"> 
+						<select name="job"  name="memberGrade" id="memberGrade" >
+						    <option value="">성별 선택</option>
+						    <option value="G">일반</option>
+						    <option value="B">판매자</option>
+						</select>					
+					</div>
+						
+<!-- 						<input class="gender-radio" type="radio" name="memberGrade" id="memberGrade" value ='B' checked>
 						<label for="female">
 							<em> 일반 </em>
 						</label>
 					</div>
 					<div class="form-check">
-						<input class="gender-radio" type="radio" name="memberGender" id="male"  value='G'>
+						<input class="gender-radio" type="radio" name="memberGrade" id="memberGrade"  value='G'>
 						<label for="male">
 							<em> 판매자 </em>
 						</label>
-					</div>
-				</div>
+					</div> -->
 
 				<br>
 			</div>
@@ -284,7 +277,7 @@ label > span {
 
 			<br>
 			<div class="signUpBtn-area">
-				<button class="btn btn-lg signUpBtn" type="submit">가입하기</button>
+				<button class="btn btn-lg signUpBtn" type="submit" id="memberSubmit">가입하기</button>
 			</div>
 	</div>
 
@@ -305,10 +298,13 @@ $(document).ready(function(){
 				},
 				success:function(data){
 					console.log(data);
+					if(data === "0"){
+						alert("이미가입된 이메일입니다 확인 해주세요");
+					}else{
 					var temp = " ";
-					temp += "<input type='hidden' id='authKeyInput' value='"+data+"'> ";
-					
+					temp += "<input type='hidden' id='authKeyInput' value='"+data+"'> ";					
 					$("#authKeyDiv").empty().append(temp);
+					}
 				},
 				error :function(){
 					
@@ -349,6 +345,61 @@ $(document).ready(function(){
 	  }) 
 	
 })
+
+$("#memberSubmit").click(function(){
+	
+	var memberEmail = $("#memberEmail").val();
+	var authKeyCheck = $("#authKeyCheck").val();
+	var authKeyInput = $("#authKeyInput").val();
+	var memberNick = $("#memberNick").val();
+	var memberNm = $("#memberNm").val();
+	var memberPhone = $("#memberPhone").val();
+	var memberGrade = $("#memberGrade").val();
+	var memberPw1 = $("#memberPw1").val();
+	var memberPw2 = $("#memberPw2").val();
+	
+	if(memberPw1 != memberPw2){
+		
+	}
+/* 	
+	if(memberNm == ""){
+		alert("asdasd");
+		focus();
+	}else{
+		alert(' 이건되나')
+	} */
+
+	$.ajax({
+		url:"memberSubmit",
+		type:"post",
+		data:{ 
+			 memberEmail : $("#memberEmail").val(),
+			 memberNick : $("#memberNick").val(),
+			 memberNm : $("#memberNm").val(),
+			 memberPhone : $("#memberPhone").val(),
+			 memberGrade : $("#memberGrade").val(),
+			 memberPw1 : $("#memberPw1").val()
+			
+		},
+		success:function(data){
+			if(data === 1){
+			alert("가입완료");
+			location.href="${contextPath}/common/main";
+			}	
+				
+			
+		},
+		error :function(){
+			
+		}
+
+  }) 
+  
+  
+	
+})
+
+
 })
 </script>
 

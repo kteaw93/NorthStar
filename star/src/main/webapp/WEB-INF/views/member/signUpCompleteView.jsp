@@ -225,7 +225,6 @@ figure.cat.hover i {
 		  
  			<br>	
 			<figure class="cat">
-				<img src="${contextPath}/resources/images/welcome.gif" />
 				<figcaption>
 				  <p>
 				  	 <br>

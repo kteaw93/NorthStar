@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<!--아이디 로그인 -->
+	<select id="boardArea" resultType="Map">
+
+		SELECT *
+		FROM hb_write_common hbwc LEFT JOIN HB_WRITE_CT hwc
+		ON hbwc.hb_category = hwc.hb_category
+	</select>
+
+
+</mapper>

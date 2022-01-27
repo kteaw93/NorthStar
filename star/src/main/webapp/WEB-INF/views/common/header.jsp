@@ -28,21 +28,54 @@
 			</div>
 			<ul class="menu_area">
 				<li><a href="${contextPath}/place/placeMain">1</a></li>
-				<li id="shop_category"><a href="${contextPath}/shop/shopMain">2</a>
+				<li id="shop_category"><a href="${contextPath}/board/boardList">게시판</a>
 					<ul class=plus_menu_area>
-						<li><a href="${contextPath}/shop/shopList/1">1-1</a></li>
+						<li><a href="${contextPath}/shop/shopList/1">게시판(종합)</a></li>
 						<li><a href="${contextPath}/shop/shopList/2">1-2</a></li>
 						<li><a href="${contextPath}/shop/shopList/3">1-3</a></li>
 					</ul></li>
 				<li><a href="${contextPath}/board/boardList">2</a></li>
 			</ul>
-			<div class="login_area">
-		    	<span><a href="${contextPath}/member/loginView">로그인</a></span>
-			 	<span><a href="${contextPath}/page/adminpage">${loginMember.memberNm}</a></span>
-			  	<span><a href="${contextPath}/page/mypagemain">${loginMember.memberNm}</a></span>
-			   	<span><a href="#" id="logout">로그아웃</a></span>
-			</div>
+			<div class="login_area" id="sessoinArea"></div>
 		</nav>
 	</header>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							var sessionId = "${memberSessionId}";
+							var temp = " ";
+							if (sessionId === "") {
+								temp += '<span><a href="${contextPath}/member/loginView">로그인</a></span>';
+							} else {
+								temp += '<span><a href="#" id="logout">로그아웃</a></span>';
+							}
+							$("#sessoinArea").empty().append(temp);
+
+						})
+		$(document).ready(function() {
+
+			/*이메일 인증  */
+			$("#logout").click(function() {
+
+				$.ajax({
+					url : "${contextPath}/member/logout",
+					type : "post",
+					data : {
+
+					},
+					success : function(data) {
+						location.href="${contextPath}/common/main";
+					},
+					error : function() {
+
+					}
+
+				})
+
+			})
+
+		})
+	</script>
 </body>
 </html>

@@ -19,7 +19,6 @@
 <style>
 .intro{
     height:100vh;
-    background: url(resources/images/mainbackground3.jpg) no-repeat center center;
     background-size: cover;
 }
 nav{
