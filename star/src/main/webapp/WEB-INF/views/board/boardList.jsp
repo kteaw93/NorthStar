@@ -163,7 +163,7 @@
 		$.ajax({
 			url:"boardArea",
 			type:"post",
-			data: {
+			data: { 
 				
 			},
 			success:function(data){
