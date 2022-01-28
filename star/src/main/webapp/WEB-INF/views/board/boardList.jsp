@@ -176,7 +176,7 @@
 				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
 				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
 				      '</div></div><br><br>'; 
-				})
+				}) 
 
 			     $("#boardArea").empty().append(temp);
 			},
