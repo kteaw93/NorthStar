@@ -16,3 +16,4 @@ public class BoardServiceImpl implements BoardService{
 		return Dao.boardArea();
 	}
 }
+ 

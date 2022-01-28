@@ -14,4 +14,4 @@ public interface MemberService {
 
 	int memberSubmit(HashMap<String, String> member);
 
-}
+} 

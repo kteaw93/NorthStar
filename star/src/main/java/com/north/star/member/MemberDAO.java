@@ -17,7 +17,7 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("member.loginCk",memberCk);
 	}
-
+ 
 	public int memberNickCk(String memberNickCk) {
 		String returnvalue = null;
 		int result = sqlSession.selectOne("member.memberNickCk",memberNickCk);

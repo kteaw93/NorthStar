@@ -28,7 +28,7 @@
 
 .form-wrapper {
 	margin: 50px 0 120px 0;
-}
+} 
 
 .form-container {
 	margin: auto;

@@ -26,7 +26,7 @@ public class MemberController {
 	public String loginView() {
 		return "member/loginView";
 	}
-
+ 
 	@RequestMapping("loginCk")
 	@ResponseBody
 	public int loginCk(@RequestParam Map<String, Object> map,Model model) {

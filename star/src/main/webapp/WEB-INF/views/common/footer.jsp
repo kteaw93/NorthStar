@@ -34,7 +34,7 @@
                     <li>Copyright © 2021 CodeBean. All rights reserved.</li>
                 </ul>
             </div>
-        </div>
+        </div> 
     </footer>
     <div class="btn_top">
         <span class="fas fa-arrow-up"></span>

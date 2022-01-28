@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
         return getAuthCode();
     }
 
-    //인증코드 난수 발생
+    //인증코드 난수 발생 
     private String getAuthCode() {
         Random random = new Random();
         StringBuffer buffer = new StringBuffer();

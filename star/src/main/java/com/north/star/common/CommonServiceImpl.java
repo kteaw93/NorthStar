@@ -8,9 +8,10 @@ public class CommonServiceImpl implements CommonService{
 
 	@Autowired
 	private CommonDAO Dao;
-
+   
 	
 	public int testNum() {
 		return Dao.testNum();
 	}
 }
+  

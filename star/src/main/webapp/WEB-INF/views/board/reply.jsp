@@ -31,7 +31,7 @@ border-top : 1px solid #ccc;
 	display : inline-block;
 	margin-right: 30px;
 	vertical-align: top;
-	font-weight: bold;
+	font-weight: bold; 
 	font-size: 1.2em;
 }
 

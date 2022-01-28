@@ -23,4 +23,4 @@
 <a href="common/main">main으로</a>
 <a href="react/main">react main으로</a>	
 </body>
-</html>
+</html> 

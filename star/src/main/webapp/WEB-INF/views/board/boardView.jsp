@@ -32,7 +32,7 @@
 .markerImg {
 	width: 148px;
 	height: 85px;
-}
+} 
 
 .map_wrap {
 	position: relative;

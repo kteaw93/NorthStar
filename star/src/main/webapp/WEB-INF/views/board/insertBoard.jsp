@@ -32,7 +32,7 @@
 
 <link rel="stylesheet" href="${contextPath}/resources/css/board/insertBoard.css">
 
-</head>
+</head> 
 
 <body>
 	<jsp:include page="../common/header.jsp" />

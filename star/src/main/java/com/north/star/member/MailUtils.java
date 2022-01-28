@@ -21,7 +21,7 @@ public class MailUtils {
 
     public void setSubject(String subject) throws MessagingException {
         messageHelper.setSubject(subject);
-    }
+    } 
 
     public void setText(String htmlContent) throws MessagingException {
         messageHelper.setText(htmlContent, true);

@@ -7,3 +7,4 @@ public interface BoardService {
 	List boardArea();
 
 }
+ 
