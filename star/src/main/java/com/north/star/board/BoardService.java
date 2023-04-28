@@ -6,5 +6,7 @@ public interface BoardService {
 
 	List boardArea();
 
+	List boardDetail(int writeNum);
+
 }
  

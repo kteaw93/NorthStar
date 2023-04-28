@@ -14,8 +14,10 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>나만의 장소</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/board/boardList.css">
@@ -30,169 +32,96 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="row">
-
-				</div>
+				<div class="row"></div>
 				<div class="row myPlace">
 
-<!-- 						<h5>존재하는 게시글이 없습니다.</h5> -->
+					<table border="1" width="50%" height="200" cellspacing="5">
+						<thead>
+							<tr align="center" bgcolor="white">
+								<th>게시글번호</th>
+								<th>제목</th>
+								<th>금액</th>
+								<th>카테고리</th>
+							</tr>
+						</thead>
 
-							<div class="col-md-3">
-								<div class="row"  id="boardArea">
-									<div class="card">
+						<tbody  align="center" bgcolor="white" id="boardArea">
 
-									</div>
-								</div>
-							</div>
-				</div>
+						</tbody>
+					</table>
 
-				<div class="row">
-					<div class="col-md-12 insert-btn">
-							<a class="btn ehsheYellow float-right writeBtn" 
+					<div class="row">
+						<div class="col-md-12 insert-btn">
+							<a class="btn ehsheYellow float-right writeBtn"
 								href="${contextPath}/board/insertBoard">글쓰기</a>
-					</div>
-				</div>
-				
-				<%-- ----------------------------페이지 네이션 --------------------------------- --%>
-				<div class="row">
-					<div class="col-md-12">
-					
-						<div class="pagination-area">
-							<ul class="pagination">
-								<%-- 주소 조합 작업 --%>
-								
-								<c:choose>
-									<%-- 검색이 된 경우  --%>
-									<c:when test="${!empty sv }">
-									
-									<%-- 검색이 된 내용이 있다면  --%>
-										<c:if test="${!empty sv }">
-											<c:set var="searchStr" value="sk=${sk }&sv=${sv }"/>
-										</c:if>
-										
-										<c:url var="pageUrl" value="search?${searchStr }&"/>
-										<c:set var="returnListURL" 
-												value="${contextPath}/board/${pageUrl}cp=${pInfo.currentPage}"
-												scope="session"/>
-									</c:when>
-									
-									<%-- 검색이 되지 않은 경우  --%>
-									<c:otherwise>
-										<c:url var="pageUrl" value="?"/>
-											<c:set var="returnListURL" 
-												value="${contextPath}/board/boardList${pageUrl}cp=${pInfo.currentPage}"
-												scope="session"/>
-									</c:otherwise>
-								</c:choose>
-	
-								<!-- 화살표에 들어갈 주소를 변수로 생성 -->
-								<c:set var="firstPage" value="${pageUrl}cp=1" />
-								<c:set var="lastPage" value="${pageUrl}cp=${pInfo.maxPage}" />
-
-								<fmt:parseNumber var="c1"
-									value="${(pInfo.currentPage - 1) / 10 }" integerOnly="true" />
-								<fmt:parseNumber var="prev" value="${ c1 * 10 }"
-									integerOnly="true" />
-								<c:set var="prevPage" value="${pageUrl}cp=${prev}" />
-
-								<fmt:parseNumber var="c2"
-									value="${(pInfo.currentPage + 9) / 10 }" integerOnly="true" />
-								<fmt:parseNumber var="next" value="${ c2 * 10 + 1 }"
-									integerOnly="true" />
-								<c:set var="nextPage" value="${pageUrl}cp=${next}" />
-
-								<c:if test="${pInfo.currentPage > pInfo.pageSize}">
-									<li><a class="page-link" href="${firstPage}">&lt;&lt;</a></li>
-
-									<li><a class="page-link" href="${prevPage}">&lt;</a></li>
-								</c:if>
-
-								<!-- 페이지 목록 -->
-								<c:forEach var="page" begin="${pInfo.startPage}"
-									end="${pInfo.endPage}">
-									<c:choose>
-										<c:when test="${pInfo.currentPage == page }">
-											<li><a class="page-link ehsheYellow" id="white">${page}</a></li>
-										</c:when>
-
-										<c:otherwise>
-											<li><a class="page-link" href="${pageUrl}cp=${page}">${page}</a>
-											</li>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-
-								<c:if test="${next <= pInfo.maxPage}">
-									<li><a class="page-link" href="${nextPage }">&gt;</a></li>
-
-									<li><a class="page-link" href="${lastPage }">&gt;&gt;</a></li>
-								</c:if>
-							</ul>
 						</div>
 					</div>
-					
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<form action="search" class="form-inline selectBox">
-							<select class="form-control mr-sm-2 search-bottom"  name="sk" type="text">
-								<option value="all">전체</option>
-								<option value="title">제목</option>
-								<option value="category">카테고리</option>
-								<option value="location">위치</option>
-							</select> <input id="search-input" class="form-control mr-sm-2" name="sv"
-								type="text" />
-							<button class="btn ehsheYellow my-2 my-sm-0">
-								검색</button>
-						</form>
+
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="pagination-area">
+								<ul class="pagination">
+								</ul>
+							</div>
+						</div>
+
 					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<form action="search" class="form-inline selectBox">
+								<select class="form-control mr-sm-2 search-bottom" name="sk"
+									type="text">
+									<option value="all">전체</option>
+									<option value="title">제목</option>
+									<option value="category">카테고리</option>
+									<option value="location">위치</option>
+								</select> <input id="search-input" class="form-control mr-sm-2" name="sv"
+									type="text" />
+								<button class="btn ehsheYellow my-2 my-sm-0">검색</button>
+							</form>
+						</div>
+					</div>
+
 				</div>
-				
+				<div class="col-md-2"></div>
 			</div>
-			<div class="col-md-2"></div>
 		</div>
-	</div>
 
-	<jsp:include page="../common/footer.jsp" />
-	
+		<jsp:include page="../common/footer.jsp" />
 
-	<script>
-	
-	$(document).ready(function(){
-	
-		$.ajax({
-			url:"boardArea",
-			type:"post",
-			data: { 
-				
-			},
-			success:function(data){
-				var temp = "";
-				$.each(data, function(index,item){
-					temp += '<div><div class="card-block">'+
-					'<input class="card-title" value="'+item.WRITE_NUM+'"></input>'+
-					 	'<input class="card-writer" value="'+item.WRITE_TITLE+'"></input>'+
-				      '<input class="card-writer" value="'+item.WRITE_MAX_PRICE+'"></input><br>'+
-				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
-				      '<input class="card-writer" value="'+item.HB_CATEGORY_NM+'"></input>'+
-				      '</div></div><br><br>'; 
-				}) 
+		<script>
+			$(document).ready(function() {
+				$.ajax({
+						url : "boardArea",
+						type : "post",
+						dataType : "json",
+						success : function(data) {
+							ajaxData(data);
+						},
+						error : function() {
 
-			     $("#boardArea").empty().append(temp);
-			},
-			error: function(){
-				
-			}
-		 
-		})
+						}
+
+					})
+
+		function ajaxData(data) {
+					var temp = "";
+					$.each(data,function(index,item) {
+						console.log(data)
+						 temp += '<tr>'
+								+ '<th>'+item.WRITE_NUM+'</th>'
+								+ '<th><a href="${contextPath}/board/boardDetail?board_idx='+item.WRITE_NUM+'">'+item.WRITE_TITLE+'</a></th>'
+								+ '<th>'+item.WRITE_MAX_PRICE+'</th>'
+								+ '<th>'+item.HB_CATEGORY_NM+'</th>'
+								+ '</tr>'; 
+					})
 		
-	})
-	
-	
-	</script>
-
-
-
-
+					$("#boardArea").empty().append(temp);
+		}
+				
+				
+				})
+		</script>
 </body>
 </html>

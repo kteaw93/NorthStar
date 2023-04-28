@@ -6,9 +6,21 @@
 	<select id="boardArea" resultType="Map">
 
 		SELECT *
-		FROM hb_write_common hbwc LEFT JOIN HB_WRITE_CT hwc
+		FROM hb_write_common hbwc 
+		LEFT JOIN HB_WRITE_CT hwc
 		ON hbwc.hb_category = hwc.hb_category
+<![CDATA[WHERE ROWNUM <= 10]]>
+		
 	</select>
+	
+	<select id="boardDetail" resultType="Map">
 
+		SELECT *
+		FROM hb_write_common hbwc 
+		LEFT JOIN HB_WRITE_CT hwc
+		ON hbwc.hb_category = hwc.hb_category
+		WHERE WRITE_NUM = #{writeNum}
+		
+	</select>
 
 </mapper> 

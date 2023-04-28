@@ -15,5 +15,10 @@ public class BoardServiceImpl implements BoardService{
 	public List boardArea() {
 		return Dao.boardArea();
 	}
+
+	@Override
+	public List boardDetail(int writeNum) {
+		return Dao.boardDetail(writeNum);
+	}
 }
  

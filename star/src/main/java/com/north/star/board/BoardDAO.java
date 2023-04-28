@@ -12,9 +12,12 @@ public class BoardDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public List boardArea() {
-		
+
 		return sqlSession.selectList("board.boardArea");
 	}
-	
-	
-} 
+
+	public List boardDetail(int writeNum) {
+		return sqlSession.selectList("board.boardDetail",writeNum);
+	}
+
+}
